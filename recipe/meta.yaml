@@ -1,6 +1,5 @@
 {% set version = '0.8' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-gigrvg
@@ -13,8 +12,7 @@ source:
   sha256: 34f3d1accf94278ad37ce3c84d6b11d4e7917552fdc3f79d56c1ecb135b4c026
 
 build:
-  merge_build_host: True  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -39,7 +37,6 @@ requirements:
     - r-base
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
